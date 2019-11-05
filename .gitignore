@@ -2,3 +2,16 @@
 
  __pycache__/
  *.pyc
+
+ch10-NumericalIntegration/__pycache__/
+ch12-SpecialFunctions/__pycache__/
+ch2-Matplotlib/__pycache__/
+ch4-Numerical_Methods/__pycache__/
+ch6-SystemofLinAlgEqn/__pycache__/
+ch8-RootFinding/__pycache__/
+ch11-SolutionofODEs/__pycache__/
+ch1-Numpy/__pycache__/
+ch3-Scipy/__pycache__/
+ch5-LinearAlgebra/__pycache__/
+ch7-Interpolation/__pycache__/
+ch9-NumericalDifferentiation/__pycache__/
