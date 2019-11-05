@@ -23,7 +23,7 @@ for n in range(1,5):
     h=10**(-d/n)
     xx=-pi
     yp=[]
-    while x<= pi:
+    while xx<=pi:
         if xStart:
             x.append(xx)
         yp.append(derivative(func,xx,h,n=n,order=m))

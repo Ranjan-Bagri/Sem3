@@ -16,7 +16,7 @@ def nodes(n):
     # calculation of n nodes
     # degree of legendre polynomial
     roots=[]
-    for i in range(n):
+    for i in range(int(n)):
         x0=np.cos((np.pi*(i+1-0.25))/(n+0.5)) # initial guess
         root=nr(recPn,n,dPndx,n,x0,1000,1e-5)
         roots.append(root)
@@ -28,9 +28,9 @@ def weights(n,xN):
     # xN ==> values of nodes
     # Method of undetermined coefficients : f(x)=x^k
     A=[]
-    for i in range(n):
+    for i in range(int(n)):
         a=[]
-        for j in range(n):
+        for j in range(int(n)):
             aa=xN[j]**i
             a.append(aa)
         aa=(1-(-1)**(i+1))/(i+1)
@@ -39,9 +39,9 @@ def weights(n,xN):
     wg1=GaussElim(A)
 
     # Method of undetermined coefficients : f(x)=P_k(x)
-    for i in range(n):
+    for i in range(int(n)):
         a=[]
-        for j in range(n):
+        for j in range(int(n)):
             aa=recPn(i,xN[j])
             a.append(aa)
         aa=2 if i==0 else 0
@@ -56,7 +56,7 @@ def weights(n,xN):
         wg3.append(wn)
     return wg1,wg2,wg3
 
-N=input('Number of nodes=')
+N=5.0 # number of inputs
 xN=nodes(N) # values of nodes
 print(xN)
 wg1,wg2,wg3=weights(N,xN) # weights from three methods

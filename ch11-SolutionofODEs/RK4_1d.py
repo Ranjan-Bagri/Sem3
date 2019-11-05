@@ -1,9 +1,7 @@
-# Euler method for solving 2nd order differential equation
-# d2y/dx2 = f(pr,x,y,dy/dx)
-# user defined function from main program should be given below as f(pr,x,y,dydx)
-def Euler2d(f,pr,x,y,dydx,dx,X):
+# Fourth order Runge-Kutta method for solving 1st order differential equation
+def RK4_1d(f,pr,x,y,dx,X):
     # arguments:
-    # f(pr,x,y,dydx) ==> user defined function
+    # f(pr,x,y) ==> user defined function
     # pr[...,...,...] ==> optional user defined set of turnable parameters to be used in user defined function. If no parameter is required then set 'pr' value to None
     # x,y ==> initial values x and y(x)
     # dx ==> step length (in text it is h)
@@ -12,15 +10,16 @@ def Euler2d(f,pr,x,y,dydx,dx,X):
     # xx ==> array of x-values
     # yy ==> array of y-values
     # ddydx ==> array of dy/dx values
-    # dd2ydx2 ==> array of d2y/dx2 values
-    xx,yy,ddydx,dd2ydx2=[],[],[],[]
+    xx,yy,ddydx=[],[],[]
     while abs(x)<abs(X): # absolute values allow to go forward and the reverse direction
-        d2ydx2=f(pr,x,y,dydx)
+        k1=dx*f(pr,x,y)
+        k2=dx*f(pr,x+0.5*dx,y+0.5*k1)
+        k3=dx*f(pr,x+0.5*dx,y+0.5*k2)
+        k4=dx*f(pr,x+dx,y+k3)
+        dy=(1/6)*(k1+2*k2+2*k3+k4)
         xx.append(x)
         yy.append(y)
-        ddydx.append(dydx)
-        dd2ydx2.append(d2ydx2)
-        dydx+=d2ydx2*dx
-        y+=dydx*dx 
-        x+=dx 
-    return xx,yy,ddydx,dd2ydx2
+        ddydx.append(dy/dx)
+        y+=dy
+        x+=dx
+    return xx,yy,ddydx

@@ -13,9 +13,9 @@ x0=float(input("Put the initial guess:"))
 n,a=3,8 # 8^(1/3)
 # obtain the solution with user defined functions and parameters as None
 pr1,pr2=[n,a],n
-x=nr(f,None,dfdx,None,x0,mx_itr,tol)
+x=nr(f,pr1,dfdx,pr2,x0,mx_itr,tol)
 if x!= None: # solutions obtained within mx_itr number of iterations
     print("Solution is x = %9.5f"%x)
-    print("Verification f(%9.5f)=%9.5f"%(x,f(None,x)))
+    print("Verification f(%9.5f)=%9.5f"%(x,f(pr1,x)))
 else: # solution not obtained within mx_itr number of iteration
     print("No solution found, Maximum iteration reached")

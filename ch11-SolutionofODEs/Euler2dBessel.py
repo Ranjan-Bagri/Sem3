@@ -16,7 +16,9 @@ xx=np.arange(x,X,dx*20) # numpy array to compare
 yy=ss.jv(n,xx) # bessel functions from scipy
 # result from euler method
 x,y,dydx,d2ydx2=Euler2d(f,n,x,y,dydx,dx,X)
-plt.plot(x,y,'k-',label='exact')
+plt.plot(x,y,'k-',label='calculated')
+# plot of result from scipy
+plt.plot(xx,yy,'k.',label='exact')
 plt.legend(loc='best',prop={'size':12})
 plt.xlabel('x')
 plt.ylabel('y')

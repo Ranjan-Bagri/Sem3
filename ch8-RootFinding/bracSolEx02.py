@@ -10,5 +10,5 @@ brack=bracSol(f,None,a,b,dx) # get brackets of roots
 
 if brack!=None:
     for i in brack:
-        x=bisec(f,None,brack,brack+dx,1.0e-8) # use bisection to get roots
+        x=bisec(f,None,i,i+dx,1.0e-8) # use bisection to get roots
         print("f(%f)=%f"%(x,f(None,x))) # print with verification

@@ -8,7 +8,7 @@ import numpy as np
 def f(pr,x):
     # transformation to continuous function with Lagrange interpolation
     # pr[0]=x-array, pr[1]=f(x)-array,pr[2]=m
-    fx=disToCnt(pr[0],pr[1],pr[2])
+    fx=disToCnt(pr[0],pr[1],x,pr[2])
     return fx
 def forDisFnc(x):
     # function to obtain the discrete function
